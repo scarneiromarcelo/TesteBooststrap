@@ -1,0 +1,55 @@
+!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora Tibia Coin</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container mt-5">
+		<h2>Calculadora Tibia Coin</h2>
+		<form>
+			<div class="form-group">
+				<label for="goldcoin">Quantidade de Gold Coin:</label>
+				<input type="number" class="form-control" id="goldcoin" placeholder="Insira a quantidade de Gold Coin">
+			</div>
+			<div class="form-group">
+				<label for="tibiavalor">Valor do Tibia Coin:</label>
+				<input type="number" class="form-control" id="tibiavalor" placeholder="Insira o valor do Tibia Coin">
+			</div>
+			<div class="form-group">
+				<label for="tibiacoins">Quantidade de Tibia Coins:</label>
+				<input type="number" class="form-control" id="tibiacoins" placeholder="Insira a quantidade de Tibia Coins">
+			</div>
+			<div class="form-group">
+				<label for="revenda">Valor de revenda por Tibia Coin:</label>
+				<input type="number" class="form-control" id="revenda" placeholder="Insira o valor de revenda por Tibia Coin">
+			</div>
+			<button type="button" class="btn btn-primary" onclick="calcular()">Calcular</button>
+		</form>
+		<div class="mt-4">
+			<p>O valor total da revenda é: <span id="resultado"></span></p>
+		</div>
+	</div>
+	<script>
+		function calcular() {
+			var goldcoin = document.getElementById("goldcoin").value;
+			var tibiavalor = document.getElementById("tibiavalor").value;
+			var tibiacoins = document.getElementById("tibiacoins").value;
+			var revenda = document.getElementById("revenda").value;
+
+			var valorTibiaCoin = tibiavalor / 250;
+			var tibiacoinsHora = goldcoin / 895000 * 25;
+			var valorRevenda = revenda * tibiacoins;
+
+			var valorTotalRevenda = valorRevenda.toFixed(2);
+
+			document.getElementById("resultado").innerHTML = "R$ " + valorTotalRevenda;
+		}
+	</script>
+</body>
+</html>
